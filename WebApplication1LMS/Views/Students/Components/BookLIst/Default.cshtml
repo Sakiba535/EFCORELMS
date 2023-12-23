@@ -1,0 +1,51 @@
+﻿@model List<Book>
+
+<table class="table table-responsive table-hover table-bordered table-striped">
+
+	<thead>
+		<tr>
+			<th>
+				Book Name
+			</th>
+			<th>
+				Author Name
+			</th>
+			<th>
+				Rent Price
+			</th>
+			<th>
+				Borrowing Date
+			</th>
+		</tr>
+	</thead>
+
+	<tbody>
+
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@item.BookName
+				</td>
+				<td>
+					@item.AuthorName
+				</td>
+				<td>
+					<input asp-for="@item.RentPrice" class="form-control" readonly />
+				</td>
+				<td>
+					<input asp-for="@item.BorrowingDate" class="form-control" readonly />
+				</td>
+			</tr>
+		}
+
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="4">
+				Book Total = @ViewBag.Total and No of Book is @ViewBag.Count
+			</td>
+		</tr>
+	</tfoot>
+
+</table>
